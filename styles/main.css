@@ -261,6 +261,12 @@ a{
     font-size: 14.5px;
     color: #4db6ac;
 }
+.marg-10{
+    margin-bottom: 10px; 
+}
+.marg-50{
+    margin-bottom: 50px; 
+}
 .marg-100{
     margin-bottom: 100px; 
 }
