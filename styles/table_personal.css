@@ -82,3 +82,8 @@
 .width-100{
     width:100%; 
 }
+.my-border{
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    border:1px solid #ccc;
+    border-radius:4px;
+}
