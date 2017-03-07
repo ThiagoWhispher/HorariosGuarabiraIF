@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="width-100">
+    <div class="container marg-50">
+      <div class="my-section" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
+        <div>
+          <img src="images/logo_ifpb.jpg" alt="boat" style="width:50%;height:100%;min-height:300px;max-height:800px;min-width:500px;max-width:1000px;">
+        </div>
+        <h1 itemprop="headline"><a class="my-name" href="https://thiagowhispher.github.io/HorarioGBA/">IFPB - Guarabira</a></h1>
+        <p class="my-description" itemprop="text">
+          Tenha acesso online aos horários de nossa instituição !!
+          <br>
+          <i class="fa fa-map-marker"></i> Guarabira, Paraíba, Brasil
+        </p>
+      </div>
+      <div id="infor" style="display:none" class="my-section">
+           <script>
+              function Home() {
+                  document.getElementById('infor').style.display = "none";
+                  document.getElementById('index').style.display = "block";
+                  hide_lists();
+              }
+          </script>
+          <div class="w3-card-2 w3-border w3-round marg-50">
+              <p> <span class="my-mini-heading">Informações</span> </p>
+              <ul>
+                  <li>
+                      <p class="my-item" >Autores<br>
+                          <span class="my-item-sub">Thiago Yuri Evaristo de souza</span>
+                          <br>
+                          <span class="my-item-sub">João Marcelo Fernandes da Silva Junior</span>
+                      </p>
+                  </li>
+                  <li>
+                      <p class="my-item">
+                          Email
+                          <br>
+                          <span class="my-item-sub">thiagoyeds2013@gmail.com</span>
+                          <br>
+                          <span class="my-item-sub">marcelinhofernandes2013@gmail.com</span>
+                      </p>
+                  </li>
+              </ul>
+              <div class="center-align">
+                  <a class="waves-effect waves-teal btn-flat btn-large" onclick="Home()">Fechar</a>
+              </div>
+          </div>
+
+          
+      </div>
+      <div class="my-section" id="index" style="display:block">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
