@@ -1,0 +1,152 @@
+---
+layout: default
+---
+
+<script>
+    function hide_lists() {
+        $('#posts').fadeOut(300);
+        $('#projects').fadeOut(300);
+        $('#posts-btn').removeClass('disabled');
+        $('#projects-btn').removeClass('disabled');
+    };
+    function show_projects() {
+        $('#posts-btn').removeClass('disabled');
+        $('#posts').fadeOut(300, function() {
+            $('#projects').fadeIn(300)
+        });
+        $('#projects-btn').addClass('disabled');
+        displayNoneTurma(-1);
+    };
+    function show_posts() {
+        $('#projects-btn').removeClass('disabled');
+        $('#projects').fadeOut(function() {
+            $('#posts').fadeIn(300)
+        });
+        $('#posts-btn').addClass('disabled');
+        displayNoneProfessor(-1);
+    };
+</script>
+<div>
+  <a id="posts-btn" class="waves-effect waves-teal btn-flat btn-large" onclick="show_posts()">Turmas</a>
+  <a id="projects-btn" class="waves-effect waves-teal btn-flat btn-large" onclick="show_projects()">Professores</a>
+</div>
+
+<script>
+    function myFilterButtonTurma(n) {
+        if(document.getElementById(n).style.display == "block"){
+            displayNoneTurma(-1);
+        }else{
+            displayNoneTurma(-1);
+            document.getElementById(n).style.display = "block";
+        }
+    }
+    function myFilterButtonProfessor(n) {
+        if(document.getElementById(n).style.display == "block"){
+            displayNoneProfessor(-1);
+        }else{
+            displayNoneProfessor(-1);
+            document.getElementById(n).style.display = "block";
+        }
+    }
+    function myFilterTurma() {
+        var input, filter;
+        input = document.getElementById("myInputTurma");
+        filter = input.value;
+        document.getElementById(filter).style.display = "block";
+    }
+    function myFilterProfessor() {
+        var input, filter;
+        input = document.getElementById("myInputProfessor");
+        filter = input.value;
+        document.getElementById(filter).style.display = "block";
+    }
+    function displayNoneTurma(s){
+        var b = [];
+        b.push('{{ site.data.turma.turmas[0] }}');b.push('{{ site.data.turma.turmas[1] }}');b.push('{{ site.data.turma.turmas[2] }}');
+        b.push('{{ site.data.turma.turmas[3] }}');b.push('{{ site.data.turma.turmas[4] }}');b.push('{{ site.data.turma.turmas[5] }}');
+        b.push('{{ site.data.turma.turmas[6] }}');b.push('{{ site.data.turma.turmas[7] }}');b.push('{{ site.data.turma.turmas[8] }}');
+        b.push('{{ site.data.turma.turmas[9] }}');b.push('{{ site.data.turma.turmas[10] }}');b.push('{{ site.data.turma.turmas[11] }}');
+        while(b.length > 0){
+          var c = b.pop()
+          if(document.getElementById(c).style.display == "block"){
+            document.getElementById(c).style.display = "none";
+          }
+        }
+        if(s == 1){
+          myFilterTurma();
+        }else if(s == 0){
+          hide_lists(); 
+        }else{
+
+        }
+    }
+    function displayNoneProfessor(s){
+        var b = [];
+        b.push('{{ site.data.professor.professores[0]}}');b.push('{{ site.data.professor.professores[1]}}');b.push('{{ site.data.professor.professores[2]}}');
+        b.push('{{ site.data.professor.professores[3]}}');b.push('{{ site.data.professor.professores[4]}}');b.push('{{ site.data.professor.professores[5]}}');
+        b.push('{{ site.data.professor.professores[6]}}');b.push('{{ site.data.professor.professores[7]}}');b.push('{{ site.data.professor.professores[8]}}');
+        b.push('{{ site.data.professor.professores[9]}}');b.push('{{ site.data.professor.professores[10]}}');b.push('{{ site.data.professor.professores[11]}}');
+        b.push('{{ site.data.professor.professores[12]}}');b.push('{{ site.data.professor.professores[13]}}');b.push('{{ site.data.professor.professores[14]}}');
+        b.push('{{ site.data.professor.professores[15]}}');b.push('{{ site.data.professor.professores[16]}}');b.push('{{ site.data.professor.professores[17]}}');
+        b.push('{{ site.data.professor.professores[18]}}');b.push('{{ site.data.professor.professores[19]}}');b.push('{{ site.data.professor.professores[20]}}');
+        b.push('{{ site.data.professor.professores[21]}}');b.push('{{ site.data.professor.professores[22]}}');b.push('{{ site.data.professor.professores[23]}}');
+        b.push('{{ site.data.professor.professores[24]}}');b.push('{{ site.data.professor.professores[25]}}');b.push('{{ site.data.professor.professores[26]}}');
+        b.push('{{ site.data.professor.professores[27]}}');b.push('{{ site.data.professor.professores[28]}}');b.push('{{ site.data.professor.professores[29]}}');
+    b.push('{{ site.data.professor.professores[30]}}');b.push('{{ site.data.professor.professores[31]}}');b.push('{{ site.data.professor.professores[32]}}');
+    b.push('{{ site.data.professor.professores[33]}}');b.push('{{ site.data.professor.professores[34]}}');b.push('{{ site.data.professor.professores[35]}}');
+    b.push('{{ site.data.professor.professores[36]}}');b.push('{{ site.data.professor.professores[37]}}');b.push('{{ site.data.professor.professores[38]}}');
+    b.push('{{ site.data.professor.professores[39]}}');b.push('{{ site.data.professor.professores[40]}}');
+    while(b.length > 0){
+      var c = b.pop();
+      if(document.getElementById(c).style.display == "block"){
+        document.getElementById(c).style.display = "none";
+      }
+    }
+    if(s == 1){
+      myFilterProfessor();
+    }else if(s == 0){
+      hide_lists(); 
+    }else{
+
+    }
+}
+</script>
+
+<div id="posts" class="my-section w3-card-2 w3-border w3-round marg-50">
+  <br>
+  <h2 class="my-mini-heading">Turma</h2>
+  
+  <div>
+    <input type="text" placeholder="Search.." id="myInputTurma" style="width:500px;font-size:15px;font-family: 'Share Tech Mono', monospace;">
+    <br>
+    <a onclick="displayNoneTurma(1);" class="btn-large">Pesquisar</a>
+    <a onclick="displayNoneTurma(0);" class="waves-effect waves-teal btn-flat btn-large">Fechar</a>
+  </div>
+  
+  <br>
+  
+  <div class="my-section w3-card-2 w3-border w3-round container marg-50 width-80">
+    {% include button_turma.html %}
+  </div>
+</div>
+
+{% include turma.html %}
+
+<div id="projects" class="my-section w3-card-2 w3-border w3-round marg-50">
+  <br>
+  <h2 class="my-mini-heading">Professor</h2>
+  <div>
+    <input type="text" placeholder="Search.." id="myInputProfessor" style="width:500px;font-size:15px;font-family: 'Share Tech Mono', monospace;">
+    <br>
+    <a onclick="displayNoneProfessor(1);" class="btn-large">Pesquisar</a>
+    <a onclick="displayNoneProfessor(0);" class="waves-effect waves-teal btn-flat btn-large">Fechar</a>
+  </div>
+  
+  <br>
+  
+  <div class="my-section w3-card-2 w3-border w3-round container marg-50 width-90">
+    {% include button_professor.html %}
+  </div>
+</div>
+
+{% include professor.html %}
