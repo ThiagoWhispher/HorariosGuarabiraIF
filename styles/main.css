@@ -261,6 +261,9 @@ a{
     font-size: 14.5px;
     color: #4db6ac;
 }
+.marg-10-top{
+    margin-top: 10px; 
+}
 .marg-10{
     margin-bottom: 10px; 
 }
