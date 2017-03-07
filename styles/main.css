@@ -127,6 +127,14 @@ a{
 .my-section{
     text-align: center;
 }
+.img-conf{
+    width:50%;
+    height:100%;
+    min-height:300px;
+    max-height:800px;
+    min-width:500px;
+    max-width:1000px; 
+}
 .my-name{
     font-family: 'Vast Shadow', cursive;
     font-size: 45px;
