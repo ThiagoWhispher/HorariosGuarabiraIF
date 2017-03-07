@@ -2,7 +2,7 @@
    {% for turma in curso.turmas %}
       <div id="{{turma.nome}}" class="container table-responsive my-border width-100 marg-100 display-none">
          <h1 class="my-name">{{ turma.nome }}</h1>
-         <table class="table-center marg-100">
+         <table class="table-center marg-50">
             <tr>
             {% for coluna in turma.colunas %}
                {% if coluna == "Hora" %}
