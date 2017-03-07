@@ -264,6 +264,12 @@ a{
 .marg-100{
     margin-bottom: 100px; 
 }
+.display-none{
+    display:none; 
+}
+.display-block{
+    display:block; 
+}
 #projects, #posts{
     display: none;
 }
