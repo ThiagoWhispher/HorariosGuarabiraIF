@@ -1,0 +1,40 @@
+{% for professor in site.data.professor.professores %}
+<div id="{{professor}}" style="display:none" class="width-100">
+    <h1 class="my-name"> {{professor}} </h1>
+    {% for curso in site.data.horarios.cursos %}
+        {% for turma in curso.turmas %}
+            <div id="{{turma.nome}}" class="container table-responsive w3-card-2 w3-round w3-border marg-50">
+	    <h1 class="my-name">{{ turma.nome }}</h1>
+	    <table class="table-center marg-50">
+	    <tr>
+	    {% for coluna in turma.colunas %}
+		{% if coluna == "Hora" %}
+		    <th class="my-description my-section row border-solid-1 font-17 width-75px">{{ coluna }}</th>
+		{% else %}
+		    <th class="my-description my-section row border-solid-1 font-17 width-200px">{{ coluna }}</th>
+		{% endif %}
+	    {% endfor %}
+	    </tr>
+	    {% for linha in turma.linhas %}
+	    <tr>
+		<td class="my-description my-section cell border-solid-1">{{linha.horario}}</td>
+		{% for aula in linha.aulas %}
+		    {% if aula.disciplina == "INTERVALO" or aula.disciplina == "JANTAR" or aula.disciplina == "ALMOÇO" %}
+			<td colspan="5" class="my-description my-section cell border-solid-1 back-cz">{{aula.disciplina}}</td>
+			{% break %}
+		    {% else %}
+			{% if aula.professor == professor %}
+				<td class="my-description my-section cell border-solid-1">{{aula.disciplina}}<br>{{aula.professor}}</td>
+			{% else %}
+				<td class="border-solid-1"><br/></td>
+			{% endif %}
+		    {% endif %}
+		{% endfor %}
+	    </tr>
+	    {% endfor %}
+	    </table>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endfor %}
