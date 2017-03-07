@@ -1,11 +1,11 @@
 {% for professor in site.data.professor.professores %}
-<div id="{{professor}}" class="width-100 display-none">
+<div id="{{professor}}" class="width-100 display-none marg-100">
     <h1 class="my-name"> {{professor}} </h1>
     {% for curso in site.data.horarios.cursos %}
         {% for turma in curso.turmas %}
             <div id="{{turma.nome}}" class="container table-responsive my-border marg-50">
 	    <h1 class="my-name">{{ turma.nome }}</h1>
-	    <table class="table-center marg-100">
+	    <table class="table-center marg-50">
 	    <tr>
 	    {% for coluna in turma.colunas %}
 		{% if coluna == "Hora" %}
