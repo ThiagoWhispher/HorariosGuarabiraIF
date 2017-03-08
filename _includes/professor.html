@@ -1,40 +1,29 @@
-{% for professor in site.data.professor.professores %}
-<div id="{{professor}}" class="width-100 display-none marg-100">
-    <h1 class="my-name"> {{professor}} </h1>
-    {% for curso in site.data.horarios.cursos %}
-        {% for turma in curso.turmas %}
-            <div id="{{turma.nome}}" class="container table-responsive my-border width-100 marg-50">
-	    <h1 class="my-name">{{ turma.nome }}</h1>
+{% for professor in site.data.horarios.professores %}
+    <div id="{{professor.nome}}" class="container table-responsive my-border width-100 marg-50">
+    <h1 class="my-name">{{ turma.nome }}</h1>
 	    <table class="table-center marg-50">
-	    <tr>
-	    {% for coluna in turma.colunas %}
-		{% if coluna == "Hora" %}
-		    <th class="my-description my-section border-solid-1 font-17 width-75px">{{ coluna }}</th>
-		{% else %}
-		    <th class="my-description my-section border-solid-1 font-17 width-200px">{{ coluna }}</th>
-		{% endif %}
-	    {% endfor %}
-	    </tr>
-	    {% for linha in turma.linhas %}
-	    <tr>
-		<td class="my-description my-section border-solid-1">{{linha.horario}}</td>
-		{% for aula in linha.aulas %}
-		    {% if aula.disciplina == "INTERVALO" or aula.disciplina == "JANTAR" or aula.disciplina == "ALMOÇO" %}
-			<td colspan="5" class="my-description my-section border-solid-1 back-cz">{{aula.disciplina}}</td>
-			{% break %}
-		    {% else %}
-			{% if aula.professor == professor %}
-				<td class="my-description my-section border-solid-1">{{aula.disciplina}}<br>{{aula.professor}}</td>
+		    <tr>
+		    {% for coluna in professor.colunas %}
+			{% if coluna == "Hora" %}
+			    <th class="my-description my-section border-solid-1 font-17 width-75px">{{ coluna }}</th>
 			{% else %}
-				<td class="border-solid-1"><br/></td>
+			    <th class="my-description my-section border-solid-1 font-17 width-200px">{{ coluna }}</th>
 			{% endif %}
-		    {% endif %}
-		{% endfor %}
-	    </tr>
-	    {% endfor %}
+		    {% endfor %}
+		    </tr>
+		    {% for linha in professor.linhas %}
+		    <tr>
+			<td class="my-description my-section border-solid-1">{{linha.horario}}</td>
+			{% for aula in linha.aulas %}
+			    {% if aula.disciplina == "INTERVALO" or aula.disciplina == "JANTAR" or aula.disciplina == "ALMOÇO" %}
+				<td colspan="5" class="my-description my-section border-solid-1 back-cz">{{aula.disciplina}}</td>
+				{% break %}
+			    {% else %}
+				<td class="my-description my-section border-solid-1">{{aula.disciplina}}<br>{{aula.turma}}</td>
+			    {% endif %}
+			{% endfor %}
+		    </tr>
+		    {% endfor %}
 	    </table>
-            </div>
-        {% endfor %}
-    {% endfor %}
-</div>
+    </div>
 {% endfor %}
